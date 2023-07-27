@@ -1,4 +1,4 @@
-# registration
+# Registration Project
 
 ## Project setup
 
