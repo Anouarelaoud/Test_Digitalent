@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "username": "anouar",
+      "password": "1",
+      "firstName": "Anouar",
+      "lastName": "AIT EL AAOUD",
+      "email": "anouar@gmail.com",
+      "adress": "73 BD Anfa Casablanca",
+      "phoneNumber": "0622879102",
+      "id": 1
+    }
+  ]
+}
