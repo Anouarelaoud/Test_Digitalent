@@ -2,63 +2,23 @@
   "users": [
     {
       "username": "anouar",
-      "password": "U2FsdGVkX1+tY9W9rHAaX1StVZlyaO7T3jTgTcuMQL8=",
-      "firstName": "1",
-      "lastName": "1",
-      "email": "a@a.s",
-      "adress": "1",
-      "phoneNumber": "0623545871",
-      "id": 4
+      "password": "U2FsdGVkX1/xr8kWC9hDL89/Mpv6NpSOQEC7tba9A/A=",
+      "firstName": "anouar",
+      "lastName": "ait el aoud",
+      "email": "anouar@gmail.com",
+      "adress": "93 BD Maarif Casablanca",
+      "phoneNumber": "0590909090",
+      "id": 1
     },
     {
-      "username": "anoua",
-      "password": "U2FsdGVkX18wArgPwRmtppRZhatsu9lonhHhtRXUgng=",
+      "username": "a",
+      "password": "U2FsdGVkX184Rqa7EgSYT/dsjpuZEmoHmMuaTZ9fbqQ=",
       "firstName": "a",
       "lastName": "a",
       "email": "a@a.a",
       "adress": "a",
       "phoneNumber": "0690909090",
-      "id": 5
-    },
-    {
-      "username": "a",
-      "password": "U2FsdGVkX18ezp7V3kfJnPTHPMo2dOQe5Qpb6tH1/YQ=",
-      "firstName": "a",
-      "lastName": "a",
-      "email": "a@a.s",
-      "adress": "a",
-      "phoneNumber": "0623545671",
-      "id": 6
-    },
-    {
-      "username": "an",
-      "password": "U2FsdGVkX190EgKth4lsCMDuzFE4EGzVvhwlIvWVmj0=",
-      "firstName": "a",
-      "lastName": "a",
-      "email": "a@a.sx",
-      "adress": "a",
-      "phoneNumber": "0690909090",
-      "id": 7
-    },
-    {
-      "username": "amine",
-      "password": "U2FsdGVkX1+DWCx9QTmIrxCXa7vB0k13lk03xC5tMzc=",
-      "firstName": "anien",
-      "lastName": "aminea",
-      "email": "amine@amine.a",
-      "adress": "ama",
-      "phoneNumber": "0690909090",
-      "id": 8
-    },
-    {
-      "username": "mehdi",
-      "password": "U2FsdGVkX1/xr8kWC9hDL89/Mpv6NpSOQEC7tba9A/A=",
-      "firstName": "h",
-      "lastName": "h",
-      "email": "a@a.h",
-      "adress": "h",
-      "phoneNumber": "0590909090",
-      "id": 9
+      "id": 2
     }
   ]
 }

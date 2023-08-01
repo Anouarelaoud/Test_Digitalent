@@ -51,7 +51,7 @@ export default {
     },
   },
   async created() {
-    const username = localStorage.getItem("username");
+    const username = localStorage.getItem("token");
     username ? this.$router.push("/") : "";
   },
 };

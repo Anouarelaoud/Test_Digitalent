@@ -2,13 +2,13 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" v-on:click="home">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/charts">Charts</a>
+        <a class="nav-link" v-on:click="charts">Charts</a>
       </li>
       <li class="nav-item logout">
-        <a class="nav-link" v-on:click="LogOut">Logout</a>
+        <a class="nav-link" v-on:click="logOut">Logout</a>
       </li>
     </ul>
   </nav>
@@ -17,9 +17,15 @@
 <script>
 export default {
   methods: {
-    LogOut() {
+    logOut() {
       this.$store.dispatch("auth/logout");
       this.$router.push("/login");
+    },
+    home() {
+      this.$router.push("/");
+    },
+    charts() {
+      this.$router.push("/charts");
     },
   },
 };

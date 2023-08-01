@@ -3,9 +3,12 @@ import Login from "./views/Login.vue";
 import Signup from "./views/Signup.vue";
 import Home from "./views/Home.vue";
 import Charts from "./views/Charts.vue";
-// import NotFound from "./views/NotFound.vue";
 
 const routes = [
+  {
+    path: "/",
+    component: Home,
+  },
   {
     path: "/login",
     component: Login,
@@ -15,17 +18,9 @@ const routes = [
     component: Signup,
   },
   {
-    path: "/",
-    component: Home,
-  },
-  {
     component: Charts,
     path: "/charts",
   },
-  //   {
-  //     path: "*",
-  //     component: NotFound,
-  //   },
 ];
 
 const router = createRouter({

@@ -16,11 +16,5 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
 </style>
 

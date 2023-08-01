@@ -6,20 +6,20 @@
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-3">
-        <label for="username">Username</label>
+        <span for="username">Username</span>
         <input v-model="username" type="text" class="form-control" disabled />
-        <label for="email">Email</label>
+        <span for="email">Email</span>
         <input v-model="email" type="email" class="form-control" disabled />
-        <label for="adress">Adress</label>
+        <span for="adress">Adress</span>
         <input v-model="adress" type="text" class="form-control" disabled />
       </div>
       <div class="col-md-3">
-        <label for="firstName">First name</label>
+        <span for="firstName">First name</span>
 
         <input v-model="firstName" type="text" class="form-control" disabled />
-        <label for="lastName">Last name</label>
+        <span for="lastName">Last name</span>
         <input v-model="lastName" type="text" class="form-control" disabled />
-        <label for="phoneNumber">Phone number</label>
+        <span for="phoneNumber">Phone number</span>
         <input
           v-model="phoneNumber"
           type="text"
@@ -34,8 +34,12 @@
 
 <script>
 import NavBar from "../components/layout/Navbar";
+import { mapState } from "vuex";
 
 export default {
+  computed: {
+    ...mapState("user", ["user"]),
+  },
   components: { NavBar },
   data() {
     return {
@@ -78,7 +82,7 @@ export default {
   margin-bottom: 50px;
 }
 
-.profile-info label {
+.profile-info span {
   display: flex;
   margin-bottom: 6px;
 }

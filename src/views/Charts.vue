@@ -14,8 +14,8 @@ import DrillDownChart from "../components/DrillDownChart";
 export default {
   components: { NavBar, BasicChart, AnimatedChart, DrillDownChart },
   async created() {
-    const username = localStorage.getItem("username");
-    !username ? this.$router.push("/login") : "";
+    const isAuth = localStorage.getItem("token");
+    !isAuth ? this.$router.push("/login") : "";
   },
 };
 </script>

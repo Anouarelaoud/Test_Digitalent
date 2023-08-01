@@ -1,4 +1,5 @@
 import CryptoJS from "crypto-js";
+import { BASE_URL } from "../../../config.js";
 
 const state = {
   token: null,
@@ -21,13 +22,9 @@ const mutations = {
 const actions = {
   async getUser({ commit }, { username }) {
     try {
-      const response = await fetch(
-        `http://localhost:5000/users?username=${username}`
-      );
+      const response = await fetch(`${BASE_URL}users?username=${username}`);
       const user = await response.json();
       if (!user[0]) commit("setError", "Invalid credentials !");
-
-      //   const token = jwt.sign({ username }, "your_secret_key");
       commit("setToken", "token");
       commit("setUser", user[0]);
       return user[0];
@@ -54,7 +51,7 @@ const actions = {
       return;
     }
     try {
-      const response = await fetch("http://localhost:5000/users");
+      const response = await fetch(`${BASE_URL}users`);
       const users = await response.json();
       const finUserByUsername = users.find((u) => u.username === username);
       const finUserByEmail = users.find((u) => u.email === email);
@@ -70,7 +67,7 @@ const actions = {
         password,
         "encryptionKey"
       ).toString();
-      await fetch("http://localhost:5000/users", {
+      await fetch(`${BASE_URL}users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

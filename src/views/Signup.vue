@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-3">
-          <label for="username">Username</label>
+          <span for="username">Username</span>
           <input
             v-model="username"
             type="text"
@@ -16,7 +16,7 @@
             placeholder="Username"
             required
           />
-          <label for="password">Password</label>
+          <span for="password">Password</span>
           <input
             v-model="password"
             type="password"
@@ -24,7 +24,7 @@
             placeholder="Password"
             required
           />
-          <label for="confirmPassword">Confirm Password</label>
+          <span for="confirmPassword">Confirm Password</span>
           <input
             v-model="confirmPassword"
             type="password"
@@ -32,7 +32,7 @@
             placeholder="Confirm Password"
             required
           />
-          <label for="email">Email</label>
+          <span for="email">Email</span>
           <input
             v-model="email"
             type="email"
@@ -42,11 +42,11 @@
             required
           />
           <p class="error-msg" v-if="!isValidEmail">
-            Please enter a valid Email.
+            Please enter a valid Email (x@x.x)
           </p>
         </div>
         <div class="col-md-3">
-          <label for="lastName">Last name</label>
+          <span for="lastName">Last name</span>
           <input
             v-model="lastName"
             type="text"
@@ -54,7 +54,7 @@
             placeholder="Last name"
             required
           />
-          <label for="firstName">First name</label>
+          <span for="firstName">First name</span>
           <input
             v-model="firstName"
             type="text"
@@ -63,7 +63,7 @@
             required
           />
 
-          <label for="adress">Adress</label>
+          <span for="adress">Adress</span>
           <input
             v-model="adress"
             type="text"
@@ -71,7 +71,7 @@
             placeholder="Adress"
             required
           />
-          <label for="phoneNumber">Phone number</label>
+          <span for="phoneNumber">Phone number</span>
           <input
             v-model="phoneNumber"
             class="form-control"
@@ -80,7 +80,7 @@
             required
           />
           <p class="error-msg" v-if="!isValidPhoneNumber">
-            Please enter a valid phone number.
+            Please enter a valid phone number (05/06xxxxxxxx)
           </p>
         </div>
         <div class="col-md-3"></div>
@@ -119,11 +119,11 @@ export default {
   },
   methods: {
     validatePhoneNumber() {
-      const phoneRegex = /^(06|05)\s?\d{2}\s?\d{2}\s?\d{2}\s?\d{2}$/; // Modify this regex based on the desired phone number format
+      const phoneRegex = /^(06|05)\s?\d{2}\s?\d{2}\s?\d{2}\s?\d{2}$/;
       this.isValidPhoneNumber = phoneRegex.test(this.phoneNumber);
     },
     validateEmail() {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Modify this regex based on the desired phone number format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       this.isValidEmail = emailRegex.test(this.email);
     },
     async submitSignUp() {
@@ -141,7 +141,7 @@ export default {
     },
   },
   async created() {
-    const username = localStorage.getItem("username");
+    const username = localStorage.getItem("token");
     username ? this.$router.push("/") : "";
   },
 };
@@ -157,7 +157,7 @@ export default {
   margin-bottom: 50px;
 }
 
-.sign-up label {
+.sign-up span {
   display: flex;
   margin-bottom: 6px;
 }
@@ -186,5 +186,6 @@ export default {
 .error-msg {
   color: red;
   text-align: start;
+  margin-top: -20px;
 }
 </style>
