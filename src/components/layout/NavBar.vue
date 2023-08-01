@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="isLogged" class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="/">Home</a>
@@ -16,22 +16,38 @@
 
 <script>
 export default {
-  name: "NavBar",
-  data() {
-    return {
-      isLogged: false,
-    };
-  },
   methods: {
     LogOut() {
-      localStorage.clear();
-      this.$router.push({ name: "Login" });
+      this.$store.dispatch("auth/logout");
+      this.$router.push("/login");
     },
-  },
-  mounted() {
-    let token = localStorage.getItem("token");
-    token ? (this.isLogged = true) : this.$router.push({ name: "Login" });
   },
 };
 </script>
 
+<style >
+.navbar {
+  margin-bottom: 50px;
+}
+
+.navbar-nav {
+  flex-direction: row !important;
+}
+
+.nav-item {
+  font-size: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+}
+
+.navbar li:hover {
+  background: #0d6efd99;
+  border-radius: 10px;
+}
+
+.logout {
+  position: absolute;
+  right: 20px;
+}
+</style>

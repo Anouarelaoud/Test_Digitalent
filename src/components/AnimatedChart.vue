@@ -4,7 +4,6 @@
 
 <script>
 export default {
-  name: "AnimatedChart",
   data() {
     return {
       chart: null,

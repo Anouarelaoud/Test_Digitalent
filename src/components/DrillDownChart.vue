@@ -18,7 +18,6 @@
 
 <script>
 export default {
-  name: "DrillDownChart",
   data() {
     return {
       chart: null,

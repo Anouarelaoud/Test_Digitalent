@@ -1,25 +1,24 @@
-# Registration Project
+# digitalent
 
 ## Project setup
-
 ```
 npm install
 ```
 
-### Run project
-
+### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-### Install Json Server
+### Compiles and minifies for production
+```
+npm run build
+```
 
+### Lints and fixes files
 ```
-npm install -g json-server
+npm run lint
 ```
 
-### Run Json Server
-
-```
-json-server --watch db/db.json
-```
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

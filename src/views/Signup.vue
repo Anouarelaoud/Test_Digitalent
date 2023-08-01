@@ -1,6 +1,6 @@
 <template>
-  <div v-if="submitMessage" class="alert alert-danger" role="alert">
-    {{ submitMessage }}
+  <div v-if="isError" class="alert alert-danger" role="alert">
+    {{ error }}
   </div>
   <div class="sign-up">
     <h1>Sign Up</h1>
@@ -38,8 +38,12 @@
             type="email"
             class="form-control"
             placeholder="Email"
+            @input="validateEmail"
             required
           />
+          <p class="error-msg" v-if="!isValidEmail">
+            Please enter a valid Email.
+          </p>
         </div>
         <div class="col-md-3">
           <label for="lastName">Last name</label>
@@ -70,11 +74,14 @@
           <label for="phoneNumber">Phone number</label>
           <input
             v-model="phoneNumber"
-            type="number"
             class="form-control"
             placeholder="Phone number"
+            @input="validatePhoneNumber"
             required
           />
+          <p class="error-msg" v-if="!isValidPhoneNumber">
+            Please enter a valid phone number.
+          </p>
         </div>
         <div class="col-md-3"></div>
       </div>
@@ -87,11 +94,14 @@
   </div>
 </template>
 
+
 <script>
-import axios from "axios";
+import { mapState } from "vuex";
 
 export default {
-  name: "SignUp",
+  computed: {
+    ...mapState("user", ["error"]),
+  },
   data() {
     return {
       username: "",
@@ -102,29 +112,79 @@ export default {
       email: "",
       adress: "",
       phoneNumber: "",
+      isError: false,
+      isValidPhoneNumber: true,
+      isValidEmail: true,
     };
   },
   methods: {
+    validatePhoneNumber() {
+      const phoneRegex = /^(06|05)\s?\d{2}\s?\d{2}\s?\d{2}\s?\d{2}$/; // Modify this regex based on the desired phone number format
+      this.isValidPhoneNumber = phoneRegex.test(this.phoneNumber);
+    },
+    validateEmail() {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Modify this regex based on the desired phone number format
+      this.isValidEmail = emailRegex.test(this.email);
+    },
     async submitSignUp() {
-      if (this.password == this.confirmPassword) {
-        let baseUrl = "http://localhost:3000/users";
-        let response = await axios.post(baseUrl, {
-          username: this.username,
-          password: this.password,
-          firstName: this.firstName,
-          lastName: this.lastName,
-          email: this.email,
-          adress: this.adress,
-          phoneNumber: this.phoneNumber,
-        });
-        response.status == 201 ? this.$router.push({ name: "Login" }) : "";
-      } else this.throwErrorMessage("Passwords must be matched !");
+      const isSignupSucc = await this.$store.dispatch("user/signup", {
+        username: this.username,
+        password: this.password,
+        confirmPassword: this.confirmPassword,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
+        adress: this.adress,
+        phoneNumber: this.phoneNumber,
+      });
+      isSignupSucc ? this.$router.push("/login") : (this.isError = true);
     },
-    throwErrorMessage(msg) {
-      this.submitStatus = "ERROR";
-      this.submitMessage = msg;
-    },
+  },
+  async created() {
+    const username = localStorage.getItem("username");
+    username ? this.$router.push("/") : "";
   },
 };
 </script>
 
+<style>
+.sign-up {
+  margin-top: 60px;
+  padding: 25px;
+}
+
+.sign-up h1 {
+  margin-bottom: 50px;
+}
+
+.sign-up label {
+  display: flex;
+  margin-bottom: 6px;
+}
+
+.sign-up input {
+  width: 100%;
+  height: 40px;
+  padding-left: 5px;
+  display: block;
+  margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid skyblue;
+}
+
+.sign-up button {
+  width: 200px;
+  height: 40px;
+  border: 1px solid skyblue;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.error-msg {
+  color: red;
+  text-align: start;
+}
+</style>

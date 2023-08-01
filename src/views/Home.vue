@@ -1,7 +1,7 @@
 
 <template>
   <NavBar />
-  <div v-if="isLogged" class="profile-info">
+  <div class="profile-info">
     <h1>Profile informations</h1>
     <div class="row">
       <div class="col-md-3"></div>
@@ -33,48 +33,64 @@
 </template>
 
 <script>
-import NavBar from "@/components/layout/NavBar";
-// import axios from "axios";
+import NavBar from "../components/layout/Navbar";
 
 export default {
-  name: "Home",
   components: { NavBar },
   data() {
     return {
       username: "",
-      password: "",
-      confirmPassword: "",
       firstName: "",
       lastName: "",
       email: "",
       adress: "",
       phoneNumber: "",
-      isLogged: false,
     };
   },
   async created() {
-    let token = localStorage.getItem("token");
-
-    // fetch UserInfo by calling api
-
-    // const response = await axios.get("http://localhost:3000/user", {
-    //   headers: {
-    //     Authorization: "Bearer" + token,
-    //   },
-    // });
-    // if (response.status !== 200) this.$router.push({ name: "Login" });
-    // let user = response.data;
-
-    let user = JSON.parse(localStorage.getItem("user-info"));
-    if (token && user) {
-      this.isLogged = true;
-      this.username = user.username;
-      this.firstName = user.firstName;
-      this.lastName = user.lastName;
-      this.email = user.email;
-      this.adress = user.adress;
-      this.phoneNumber = "0" + parseInt(user.phoneNumber);
-    } else this.$router.push({ name: "Login" });
+    const username = localStorage.getItem("username");
+    !username ? this.$router.push("/login") : "";
+    const user = await this.$store.dispatch("user/getUser", {
+      username: username,
+    });
+    if (!user) {
+      this.$router.push("/login");
+      return;
+    }
+    this.username = user.username;
+    this.firstName = user.firstName;
+    this.lastName = user.lastName;
+    this.email = user.email;
+    this.adress = user.adress;
+    this.phoneNumber = "0" + parseInt(user.phoneNumber);
+    this.isLogged = true;
   },
 };
 </script>
+
+<style>
+.profile-info {
+  margin-top: 60px;
+  padding: 25px;
+}
+
+.profile-info h1 {
+  margin-bottom: 50px;
+}
+
+.profile-info label {
+  display: flex;
+  margin-bottom: 6px;
+}
+
+.profile-info input {
+  width: 100%;
+  height: 40px;
+  padding-left: 5px;
+  display: block;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid skyblue;
+}
+</style>
