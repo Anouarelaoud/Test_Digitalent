@@ -1,8 +1,10 @@
 <template>
-  <NavBar />
-  <BasicChart class="chart" />
-  <AnimatedChart class="chart" />
-  <DrillDownChart class="chart" />
+  <div>
+    <NavBar />
+    <BasicChart class="chart" />
+    <AnimatedChart class="chart" />
+    <DrillDownChart class="chart" />
+  </div>
 </template>
 
 <script>

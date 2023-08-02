@@ -1,30 +1,32 @@
 <template>
-  <div v-if="isError" class="alert alert-danger" role="alert">
-    {{ error }}
-  </div>
-  <div class="login">
-    <h1>Login</h1>
-    <form class="form-group" @submit.prevent="submitLogin">
-      <input
-        v-model="username"
-        type="text"
-        class="form-control"
-        placeholder="Username"
-        required
-      />
-      <input
-        v-model="password"
-        type="password"
-        class="form-control"
-        placeholder="Password"
-        required
-      />
-      <button class="btn btn-primary">Login</button>
-      <p>
-        Create new account ?
-        <router-link to="/signup">Sign Up</router-link>
-      </p>
-    </form>
+  <div>
+    <div v-if="isError" class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+    <div class="login">
+      <h1>Login</h1>
+      <form class="form-group" @submit.prevent="submitLogin">
+        <input
+          v-model="username"
+          type="text"
+          class="form-control"
+          placeholder="Username"
+          required
+        />
+        <input
+          v-model="password"
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          required
+        />
+        <button class="btn btn-primary">Login</button>
+        <p>
+          Create new account ?
+          <router-link to="/signup">Sign Up</router-link>
+        </p>
+      </form>
+    </div>
   </div>
 </template>
 

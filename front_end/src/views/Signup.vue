@@ -1,96 +1,98 @@
 <template>
-  <div v-if="isError" class="alert alert-danger" role="alert">
-    {{ error }}
-  </div>
-  <div class="sign-up">
-    <h1>Sign Up</h1>
-    <form class="form-group" @submit.prevent="submitSignUp">
-      <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-3">
-          <span for="username">Username</span>
-          <input
-            v-model="username"
-            type="text"
-            class="form-control"
-            placeholder="Username"
-            required
-          />
-          <span for="password">Password</span>
-          <input
-            v-model="password"
-            type="password"
-            class="form-control"
-            placeholder="Password"
-            required
-          />
-          <span for="confirmPassword">Confirm Password</span>
-          <input
-            v-model="confirmPassword"
-            type="password"
-            class="form-control"
-            placeholder="Confirm Password"
-            required
-          />
-          <span for="email">Email</span>
-          <input
-            v-model="email"
-            type="email"
-            class="form-control"
-            placeholder="Email"
-            @input="validateEmail"
-            required
-          />
-          <p class="error-msg" v-if="!isValidEmail">
-            Please enter a valid Email (x@x.x)
-          </p>
-        </div>
-        <div class="col-md-3">
-          <span for="lastName">Last name</span>
-          <input
-            v-model="lastName"
-            type="text"
-            class="form-control"
-            placeholder="Last name"
-            required
-          />
-          <span for="firstName">First name</span>
-          <input
-            v-model="firstName"
-            type="text"
-            class="form-control"
-            placeholder="First name"
-            required
-          />
+  <div>
+    <div v-if="isError" class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+    <div class="sign-up">
+      <h1>Sign Up</h1>
+      <form class="form-group" @submit.prevent="submitSignUp">
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-3">
+            <span for="username">Username</span>
+            <input
+              v-model="username"
+              type="text"
+              class="form-control"
+              placeholder="Username"
+              required
+            />
+            <span for="password">Password</span>
+            <input
+              v-model="password"
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              required
+            />
+            <span for="confirmPassword">Confirm Password</span>
+            <input
+              v-model="confirmPassword"
+              type="password"
+              class="form-control"
+              placeholder="Confirm Password"
+              required
+            />
+            <span for="email">Email</span>
+            <input
+              v-model="email"
+              type="email"
+              class="form-control"
+              placeholder="Email"
+              @input="validateEmail"
+              required
+            />
+            <p class="error-msg" v-if="!isValidEmail">
+              Please enter a valid Email (x@x.x)
+            </p>
+          </div>
+          <div class="col-md-3">
+            <span for="lastName">Last name</span>
+            <input
+              v-model="lastName"
+              type="text"
+              class="form-control"
+              placeholder="Last name"
+              required
+            />
+            <span for="firstName">First name</span>
+            <input
+              v-model="firstName"
+              type="text"
+              class="form-control"
+              placeholder="First name"
+              required
+            />
 
-          <span for="adress">Adress</span>
-          <input
-            v-model="adress"
-            type="text"
-            class="form-control"
-            placeholder="Adress"
-            required
-          />
-          <span for="phoneNumber">Phone number</span>
-          <input
-            v-model="phoneNumber"
-            class="form-control"
-            placeholder="Phone number"
-            @input="validatePhoneNumber"
-            required
-          />
-          <p class="error-msg" v-if="!isValidPhoneNumber">
-            Please enter a valid phone number (05/06xxxxxxxx)
-          </p>
+            <span for="adress">Adress</span>
+            <input
+              v-model="adress"
+              type="text"
+              class="form-control"
+              placeholder="Adress"
+              required
+            />
+            <span for="phoneNumber">Phone number</span>
+            <input
+              v-model="phoneNumber"
+              class="form-control"
+              placeholder="Phone number"
+              @input="validatePhoneNumber"
+              required
+            />
+            <p class="error-msg" v-if="!isValidPhoneNumber">
+              Please enter a valid phone number (05/06xxxxxxxx)
+            </p>
+          </div>
+          <div class="col-md-3"></div>
         </div>
-        <div class="col-md-3"></div>
-      </div>
-      <button class="btn btn-primary">Sign Up</button>
-      <p>
-        Already have an account?
-        <router-link to="/login">Login</router-link>
-      </p>
-    </form>
+        <button class="btn btn-primary">Sign Up</button>
+        <p>
+          Already have an account?
+          <router-link to="/login">Login</router-link>
+        </p>
+      </form>
+    </div>
   </div>
 </template>
 

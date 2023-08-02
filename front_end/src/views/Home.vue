@@ -1,33 +1,40 @@
 
 <template>
-  <NavBar />
-  <div class="profile-info">
-    <h1>Profile informations</h1>
-    <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-3">
-        <span for="username">Username</span>
-        <input v-model="username" type="text" class="form-control" disabled />
-        <span for="email">Email</span>
-        <input v-model="email" type="email" class="form-control" disabled />
-        <span for="adress">Adress</span>
-        <input v-model="adress" type="text" class="form-control" disabled />
-      </div>
-      <div class="col-md-3">
-        <span for="firstName">First name</span>
+  <div>
+    <NavBar />
+    <div class="profile-info">
+      <h1>Profile informations</h1>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+          <span for="username">Username</span>
+          <input v-model="username" type="text" class="form-control" disabled />
+          <span for="email">Email</span>
+          <input v-model="email" type="email" class="form-control" disabled />
+          <span for="adress">Adress</span>
+          <input v-model="adress" type="text" class="form-control" disabled />
+        </div>
+        <div class="col-md-3">
+          <span for="firstName">First name</span>
 
-        <input v-model="firstName" type="text" class="form-control" disabled />
-        <span for="lastName">Last name</span>
-        <input v-model="lastName" type="text" class="form-control" disabled />
-        <span for="phoneNumber">Phone number</span>
-        <input
-          v-model="phoneNumber"
-          type="text"
-          class="form-control"
-          disabled
-        />
+          <input
+            v-model="firstName"
+            type="text"
+            class="form-control"
+            disabled
+          />
+          <span for="lastName">Last name</span>
+          <input v-model="lastName" type="text" class="form-control" disabled />
+          <span for="phoneNumber">Phone number</span>
+          <input
+            v-model="phoneNumber"
+            type="text"
+            class="form-control"
+            disabled
+          />
+        </div>
+        <div class="col-md-3"></div>
       </div>
-      <div class="col-md-3"></div>
     </div>
   </div>
 </template>
@@ -51,6 +58,7 @@ export default {
     const isAuth = localStorage.getItem("token");
     !isAuth ? this.$router.push("/login") : (this.isLogged = true);
     const username = localStorage.getItem("username");
+    if (!username) return;
     const user = await this.$store.dispatch("user/getUser", {
       username: username,
     });
