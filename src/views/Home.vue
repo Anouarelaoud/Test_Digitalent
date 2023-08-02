@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import NavBar from "../components/layout/Navbar";
+import NavBar from "@/components/layout/NavBar";
 import { mapState } from "vuex";
 
 export default {

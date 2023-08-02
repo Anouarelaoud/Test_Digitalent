@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import NavBar from "../components/layout/Navbar";
+import NavBar from "../components/layout/NavBar";
 import BasicChart from "../components/BasicChart";
 import AnimatedChart from "../components/AnimatedChart";
 import DrillDownChart from "../components/DrillDownChart";
