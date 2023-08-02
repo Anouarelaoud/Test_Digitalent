@@ -1,6 +1,6 @@
 # Digitalent_test
 
-## Front_end setup
+## Setup Front_end
 
 ```
 cd front_end
@@ -13,14 +13,14 @@ npm install
 npm run serve
 ```
 
-## Back_end setup
+## Setup Back_end
 
 ```
 cd back_end
 npm install
 ```
 
-### Run Front_end
+### Run Back_end
 
 ```
 node index.js
