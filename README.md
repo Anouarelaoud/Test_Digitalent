@@ -7,7 +7,7 @@ cd front_end
 npm install
 ```
 
-### Run client side
+### Run Front_end
 
 ```
 npm run serve
@@ -20,7 +20,7 @@ cd back_end
 npm install
 ```
 
-### Run server side
+### Run Front_end
 
 ```
 node index.js
