@@ -1,25 +1,27 @@
 # Digitalent_test
 
-## Project setup
+## Front_end setup
 
 ```
+cd front_end
 npm install
 ```
 
-### Run project
+### Run client side
 
 ```
 npm run serve
 ```
 
-### Install Json Server
+## Back_end setup
 
 ```
-npm install -g json-server
+cd back_end
+npm install
 ```
 
-### Run Json Server
+### Run server side
 
 ```
-npm run json-server
+node index.js
 ```
