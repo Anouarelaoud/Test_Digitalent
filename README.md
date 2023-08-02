@@ -1,27 +1,22 @@
-# Digitalent_test
+## Setup && Run Front_end using docker
 
-## Setup Front_end
+```
+docker build -t front_end .
+docker run -p 8080:80 front_end
+```
+
+### Setup && Run Front_end
 
 ```
 cd front_end
 npm install
-```
-
-### Run Front_end
-
-```
 npm run serve
 ```
 
-## Setup Back_end
+### Setup && Run Back_end
 
 ```
 cd back_end
 npm install
-```
-
-### Run Back_end
-
-```
 node index.js
 ```
