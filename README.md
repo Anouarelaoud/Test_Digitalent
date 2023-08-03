@@ -3,7 +3,7 @@
 ```
 cd frontend
 docker build -t front_end .
-docker run -p 8080:80 front_end
+docker run -p 8080:8080 front_end
 ```
 
 ### Setup && Run Front_end
